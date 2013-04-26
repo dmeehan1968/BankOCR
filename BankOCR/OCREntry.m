@@ -11,18 +11,20 @@
 @interface OCREntry ()
 
 @property (strong) NSArray *strings;
-@property (weak) id parser;
+@property (weak) id<OCRParser> parser;
+@property (strong) NSArray *digits;
 
 @end
 
 @implementation OCREntry
 
--(id)initWithStrings:(NSArray *)strings andParser:(id)parser {
+-(id)initWithStrings:(NSArray *)strings andParser:(id<OCRParser>)parser {
 	
 	if (self = [super init]) {
 
 		_strings = strings;
 		_parser = parser;
+		_digits = nil;
 		
 	}
 	
@@ -31,6 +33,12 @@
 
 -(BOOL)isValid {
 	return NO;
+}
+
+-(void)parse {
+
+	self.digits = [self.parser digitsFromArrayOfStrings: self.strings];
+	
 }
 
 @end

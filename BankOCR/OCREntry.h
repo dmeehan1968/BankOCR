@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "OCRParser.h"
 
 @interface OCREntry : NSObject
 
--(id) initWithStrings: (NSArray *)strings andParser: (id) parser;
+-(id) initWithStrings: (NSArray *)strings andParser: (id<OCRParser>) parser;
 
 -(BOOL)isValid;
+-(void)parse;
 
 @end
