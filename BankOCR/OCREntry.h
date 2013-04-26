@@ -12,4 +12,6 @@
 
 -(id) initWithStrings: (NSArray *)strings andParser: (id) parser;
 
+-(BOOL)isValid;
+
 @end

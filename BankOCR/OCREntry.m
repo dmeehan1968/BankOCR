@@ -29,4 +29,8 @@
 	return self;
 }
 
+-(BOOL)isValid {
+	return NO;
+}
+
 @end

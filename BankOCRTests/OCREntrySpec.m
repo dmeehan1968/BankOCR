@@ -24,6 +24,13 @@ describe(@"OCREntry", ^{
 		[sut shouldNotBeNil];
 	
 	});
+	
+	it(@"should report invalid when uninitialised", ^{
+		
+		[[theValue([sut isValid]) should] beNo];
+		
+	});
+
 
 });
 
