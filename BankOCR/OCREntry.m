@@ -33,7 +33,12 @@
 
 -(BOOL)isValid {
 	
+	if (self.digits.count != 9) {
+		return NO;
+	}
+	
 	__block BOOL result = NO;
+	
 	[self.digits enumerateObjectsUsingBlock:^(id<OCRDigit> digit, NSUInteger idx, BOOL *stop) {
 		
 		result = [digit confidence] == 1;

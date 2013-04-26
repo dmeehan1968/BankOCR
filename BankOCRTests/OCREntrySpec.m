@@ -83,9 +83,24 @@ describe(@"OCREntry", ^{
 			[[theValue([sut isValid]) should] beYes];
 			
 		});
-
-
 		
+		it(@"should report invalid if not 9 digits", ^{
+			
+			id mockDigitFor0 = [KWMock mockForProtocol:@protocol(OCRDigit)];
+			
+			NSArray *digits = @[ mockDigitFor0 ];
+			
+			[[mockDigitFor0 should] receive:@selector(confidence) andReturn:theValue(1.0) withCountAtLeast:0];
+			
+			[[parser should] receive:@selector(digitsFromArrayOfStrings:) andReturn: digits];
+			
+			[sut parse];
+			
+			[[theValue([sut isValid]) should] beNo];
+			
+			
+		});
+
 	});
 
 
