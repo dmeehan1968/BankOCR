@@ -68,6 +68,22 @@ describe(@"OCREntry", ^{
 			
 		});
 
+		it(@"should report a valid parsing result", ^{
+			
+			id mockDigitFor0 = [KWMock mockForProtocol:@protocol(OCRDigit)];
+			
+			NSArray *digits = @[ mockDigitFor0, mockDigitFor0, mockDigitFor0, mockDigitFor0, mockDigitFor0, mockDigitFor0, mockDigitFor0, mockDigitFor0, mockDigitFor0 ];
+			
+			[[mockDigitFor0 should] receive:@selector(confidence) andReturn:theValue(1.0) withCount:9];
+			
+			[[parser should] receive:@selector(digitsFromArrayOfStrings:) andReturn: digits];
+			
+			[sut parse];
+			
+			[[theValue([sut isValid]) should] beYes];
+			
+		});
+
 
 		
 	});

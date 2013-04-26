@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "OCRParser.h"
+#import "OCRDigit.h"
 
 @interface OCREntry : NSObject
 

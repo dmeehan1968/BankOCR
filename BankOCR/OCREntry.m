@@ -32,7 +32,16 @@
 }
 
 -(BOOL)isValid {
-	return NO;
+	
+	__block BOOL result = NO;
+	[self.digits enumerateObjectsUsingBlock:^(id<OCRDigit> digit, NSUInteger idx, BOOL *stop) {
+		
+		result = [digit confidence] == 1;
+		*stop = ! result;
+		
+	}];
+	
+	return result;
 }
 
 -(void)parse {
