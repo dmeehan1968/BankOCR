@@ -10,5 +10,6 @@
 
 @interface OCREntry : NSObject
 
+-(id) initWithStrings: (NSArray *)strings andParser: (id) parser;
 
 @end

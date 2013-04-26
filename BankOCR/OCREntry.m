@@ -8,6 +8,25 @@
 
 #import "OCREntry.h"
 
+@interface OCREntry ()
+
+@property (strong) NSArray *strings;
+@property (weak) id parser;
+
+@end
+
 @implementation OCREntry
+
+-(id)initWithStrings:(NSArray *)strings andParser:(id)parser {
+	
+	if (self = [super init]) {
+
+		_strings = strings;
+		_parser = parser;
+		
+	}
+	
+	return self;
+}
 
 @end

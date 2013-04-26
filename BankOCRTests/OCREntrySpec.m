@@ -9,7 +9,7 @@ describe(@"OCREntry", ^{
 	
 	beforeEach(^{
 		
-		sut = [OCREntry new];
+		sut = [[OCREntry alloc] initWithStrings: nil andParser: nil];
 		
 	});
 	
@@ -24,8 +24,6 @@ describe(@"OCREntry", ^{
 		[sut shouldNotBeNil];
 	
 	});
-
-	
 
 });
 
