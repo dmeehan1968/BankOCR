@@ -16,7 +16,10 @@
 		A318C42D172A8A38008F3CFE /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A318C42C172A8A38008F3CFE /* SenTestingKit.framework */; };
 		A318C42E172A8A38008F3CFE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A318C40E172A8A36008F3CFE /* Cocoa.framework */; };
 		A318C436172A8A38008F3CFE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A318C434172A8A38008F3CFE /* InfoPlist.strings */; };
-		A318C439172A8A38008F3CFE /* BankOCRTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A318C438172A8A38008F3CFE /* BankOCRTests.m */; };
+		A318C448172A8E37008F3CFE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A318C447172A8E37008F3CFE /* README.md */; };
+		A318C44A172A8F13008F3CFE /* OCREntrySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A318C449172A8F13008F3CFE /* OCREntrySpec.m */; };
+		A318C450172AA696008F3CFE /* OCREntry.m in Sources */ = {isa = PBXBuildFile; fileRef = A318C44F172AA696008F3CFE /* OCREntry.m */; };
+		D16675090887404EAD4C88ED /* libPods-BankOCRTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F88C35D6AE4D60B0106506 /* libPods-BankOCRTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17F88C35D6AE4D60B0106506 /* libPods-BankOCRTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BankOCRTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A318C40B172A8A36008F3CFE /* BankOCR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BankOCR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A318C40E172A8A36008F3CFE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A318C411172A8A36008F3CFE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -47,8 +51,13 @@
 		A318C42C172A8A38008F3CFE /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		A318C433172A8A38008F3CFE /* BankOCRTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BankOCRTests-Info.plist"; sourceTree = "<group>"; };
 		A318C435172A8A38008F3CFE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A318C437172A8A38008F3CFE /* BankOCRTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BankOCRTests.h; sourceTree = "<group>"; };
-		A318C438172A8A38008F3CFE /* BankOCRTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BankOCRTests.m; sourceTree = "<group>"; };
+		A318C447172A8E37008F3CFE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		A318C449172A8F13008F3CFE /* OCREntrySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCREntrySpec.m; sourceTree = "<group>"; };
+		A318C44E172AA696008F3CFE /* OCREntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCREntry.h; sourceTree = "<group>"; };
+		A318C44F172AA696008F3CFE /* OCREntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCREntry.m; sourceTree = "<group>"; };
+		A318C452172AD17E008F3CFE /* OCRParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCRParser.h; sourceTree = "<group>"; };
+		A318C453172ADBD5008F3CFE /* OCRDigit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCRDigit.h; sourceTree = "<group>"; };
+		EB2D374DE58B47C780E7C72E /* Pods-BankOCRTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BankOCRTests.xcconfig"; path = "Pods/Pods-BankOCRTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +75,7 @@
 			files = (
 				A318C42D172A8A38008F3CFE /* SenTestingKit.framework in Frameworks */,
 				A318C42E172A8A38008F3CFE /* Cocoa.framework in Frameworks */,
+				D16675090887404EAD4C88ED /* libPods-BankOCRTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,10 +85,12 @@
 		A318C402172A8A36008F3CFE = {
 			isa = PBXGroup;
 			children = (
+				A318C447172A8E37008F3CFE /* README.md */,
 				A318C414172A8A36008F3CFE /* BankOCR */,
 				A318C431172A8A38008F3CFE /* BankOCRTests */,
 				A318C40D172A8A36008F3CFE /* Frameworks */,
 				A318C40C172A8A36008F3CFE /* Products */,
+				EB2D374DE58B47C780E7C72E /* Pods-BankOCRTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +109,7 @@
 				A318C40E172A8A36008F3CFE /* Cocoa.framework */,
 				A318C42C172A8A38008F3CFE /* SenTestingKit.framework */,
 				A318C410172A8A36008F3CFE /* Other Frameworks */,
+				17F88C35D6AE4D60B0106506 /* libPods-BankOCRTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -114,6 +127,10 @@
 		A318C414172A8A36008F3CFE /* BankOCR */ = {
 			isa = PBXGroup;
 			children = (
+				A318C453172ADBD5008F3CFE /* OCRDigit.h */,
+				A318C44E172AA696008F3CFE /* OCREntry.h */,
+				A318C44F172AA696008F3CFE /* OCREntry.m */,
+				A318C452172AD17E008F3CFE /* OCRParser.h */,
 				A318C420172A8A37008F3CFE /* OCRAppDelegate.h */,
 				A318C421172A8A37008F3CFE /* OCRAppDelegate.m */,
 				A318C423172A8A37008F3CFE /* MainMenu.xib */,
@@ -137,8 +154,7 @@
 		A318C431172A8A38008F3CFE /* BankOCRTests */ = {
 			isa = PBXGroup;
 			children = (
-				A318C437172A8A38008F3CFE /* BankOCRTests.h */,
-				A318C438172A8A38008F3CFE /* BankOCRTests.m */,
+				A318C449172A8F13008F3CFE /* OCREntrySpec.m */,
 				A318C432172A8A38008F3CFE /* Supporting Files */,
 			);
 			path = BankOCRTests;
@@ -181,6 +197,7 @@
 				A318C427172A8A38008F3CFE /* Frameworks */,
 				A318C428172A8A38008F3CFE /* Resources */,
 				A318C429172A8A38008F3CFE /* ShellScript */,
+				70DEE5CB39894DA4B0A66D96 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -228,6 +245,7 @@
 				A318C419172A8A36008F3CFE /* InfoPlist.strings in Resources */,
 				A318C41F172A8A37008F3CFE /* Credits.rtf in Resources */,
 				A318C425172A8A37008F3CFE /* MainMenu.xib in Resources */,
+				A318C448172A8E37008F3CFE /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +260,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		70DEE5CB39894DA4B0A66D96 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-BankOCRTests-resources.sh\"\n";
+		};
 		A318C429172A8A38008F3CFE /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -264,6 +296,7 @@
 			files = (
 				A318C41B172A8A37008F3CFE /* main.m in Sources */,
 				A318C422172A8A37008F3CFE /* OCRAppDelegate.m in Sources */,
+				A318C450172AA696008F3CFE /* OCREntry.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,7 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A318C439172A8A38008F3CFE /* BankOCRTests.m in Sources */,
+				A318C44A172A8F13008F3CFE /* OCREntrySpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,10 +439,10 @@
 		};
 		A318C440172A8A38008F3CFE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB2D374DE58B47C780E7C72E /* Pods-BankOCRTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BankOCR.app/Contents/MacOS/BankOCR";
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BankOCR/BankOCR-Prefix.pch";
 				INFOPLIST_FILE = "BankOCRTests/BankOCRTests-Info.plist";
@@ -421,10 +454,10 @@
 		};
 		A318C441172A8A38008F3CFE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB2D374DE58B47C780E7C72E /* Pods-BankOCRTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BankOCR.app/Contents/MacOS/BankOCR";
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BankOCR/BankOCR-Prefix.pch";
 				INFOPLIST_FILE = "BankOCRTests/BankOCRTests-Info.plist";
@@ -453,6 +486,7 @@
 				A318C43E172A8A38008F3CFE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A318C43F172A8A38008F3CFE /* Build configuration list for PBXNativeTarget "BankOCRTests" */ = {
 			isa = XCConfigurationList;
@@ -461,6 +495,7 @@
 				A318C441172A8A38008F3CFE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
