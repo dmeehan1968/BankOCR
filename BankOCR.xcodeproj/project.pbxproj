@@ -19,6 +19,8 @@
 		A318C448172A8E37008F3CFE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A318C447172A8E37008F3CFE /* README.md */; };
 		A318C44A172A8F13008F3CFE /* OCREntrySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A318C449172A8F13008F3CFE /* OCREntrySpec.m */; };
 		A318C450172AA696008F3CFE /* OCREntry.m in Sources */ = {isa = PBXBuildFile; fileRef = A318C44F172AA696008F3CFE /* OCREntry.m */; };
+		A318C455172AE970008F3CFE /* OCRDigitSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A318C454172AE970008F3CFE /* OCRDigitSpec.m */; };
+		A318C457172AE9C3008F3CFE /* OCRDigit.m in Sources */ = {isa = PBXBuildFile; fileRef = A318C456172AE9C2008F3CFE /* OCRDigit.m */; };
 		D16675090887404EAD4C88ED /* libPods-BankOCRTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F88C35D6AE4D60B0106506 /* libPods-BankOCRTests.a */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +59,8 @@
 		A318C44F172AA696008F3CFE /* OCREntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCREntry.m; sourceTree = "<group>"; };
 		A318C452172AD17E008F3CFE /* OCRParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCRParser.h; sourceTree = "<group>"; };
 		A318C453172ADBD5008F3CFE /* OCRDigit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCRDigit.h; sourceTree = "<group>"; };
+		A318C454172AE970008F3CFE /* OCRDigitSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCRDigitSpec.m; sourceTree = "<group>"; };
+		A318C456172AE9C2008F3CFE /* OCRDigit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCRDigit.m; sourceTree = "<group>"; };
 		EB2D374DE58B47C780E7C72E /* Pods-BankOCRTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BankOCRTests.xcconfig"; path = "Pods/Pods-BankOCRTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -128,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				A318C453172ADBD5008F3CFE /* OCRDigit.h */,
+				A318C456172AE9C2008F3CFE /* OCRDigit.m */,
 				A318C44E172AA696008F3CFE /* OCREntry.h */,
 				A318C44F172AA696008F3CFE /* OCREntry.m */,
 				A318C452172AD17E008F3CFE /* OCRParser.h */,
@@ -155,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				A318C449172A8F13008F3CFE /* OCREntrySpec.m */,
+				A318C454172AE970008F3CFE /* OCRDigitSpec.m */,
 				A318C432172A8A38008F3CFE /* Supporting Files */,
 			);
 			path = BankOCRTests;
@@ -297,6 +303,7 @@
 				A318C41B172A8A37008F3CFE /* main.m in Sources */,
 				A318C422172A8A37008F3CFE /* OCRAppDelegate.m in Sources */,
 				A318C450172AA696008F3CFE /* OCREntry.m in Sources */,
+				A318C457172AE9C3008F3CFE /* OCRDigit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A318C44A172A8F13008F3CFE /* OCREntrySpec.m in Sources */,
+				A318C455172AE970008F3CFE /* OCRDigitSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

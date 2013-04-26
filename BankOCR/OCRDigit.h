@@ -5,3 +5,7 @@
 -(NSInteger)integerValue;
 
 @end
+
+@interface OCRDigit : NSObject <OCRDigit>
+
+@end
