@@ -16,5 +16,7 @@
 
 -(BOOL)isValid;
 -(void)parse;
+-(NSString *)stringValue;
+
 
 @end

@@ -55,4 +55,22 @@
 	
 }
 
+-(NSString *)stringValue {
+	
+	__block NSString *string = @"";
+
+	[self.digits enumerateObjectsUsingBlock:^(id<OCRDigit> digit, NSUInteger idx, BOOL *stop) {
+		
+		string = [string stringByAppendingFormat:@"%ld", (long)[digit integerValue] ];
+	}];
+	
+	return string;
+	
+}
+
 @end
+
+
+
+
+
