@@ -109,6 +109,8 @@ const char _digits[10][3][3] = {
 		return;
 	}
 	
+	self.dirty = NO;
+
 	for (int digit=0; digit < 10; digit++) {
 		
 		int matches = 0;
@@ -132,6 +134,7 @@ const char _digits[10][3][3] = {
 			return;
 		}
 	}
+	
 }
 
 @end
