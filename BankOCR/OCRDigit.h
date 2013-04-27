@@ -1,15 +1,14 @@
 
 @protocol OCRDigit <NSObject>
 
--(float) confidence;
--(NSInteger)integerValue;
+@property (readonly, nonatomic) float confidence;
+@property (readonly, nonatomic) NSInteger integerValue;
+@property (readonly, nonatomic) NSInteger closestIntegerValue;
+@property (readonly, nonatomic) NSString *stringValue;
 
 @end
 
 @interface OCRDigit : NSObject <OCRDigit>
-
-@property (readonly, nonatomic) float confidence;
-@property (readonly, nonatomic) NSInteger integerValue;
 
 -(void) setSymbol: (char) symbol atRow: (NSInteger) row column: (NSInteger) column;
 
