@@ -33,87 +33,13 @@ describe(@"OCREntry", ^{
 			
 		});
 		
-	});
-
-	context(@"initialised with strings and parser", ^{
-		
-		__block NSArray *inputStrings;
-		__block id parser;
-		__block id mockDigitFor0;
-		__block NSArray *digitsForNineZeroes;
-		
-		beforeEach(^{
+		it(@"should validate checkdigits by default", ^{
 			
-			mockDigitFor0 = [KWMock mockForProtocol:@protocol(OCRDigit)];
-			
-			digitsForNineZeroes = @[ mockDigitFor0, mockDigitFor0, mockDigitFor0, mockDigitFor0, mockDigitFor0, mockDigitFor0, mockDigitFor0, mockDigitFor0, mockDigitFor0 ];
-
-			inputStrings = @[	@" _  _  _  _  _  _  _  _  _ ",
-								@"| || || || || || || || || |",
-								@"|_||_||_||_||_||_||_||_||_|",
-					 ];
-			
-			parser = [KWMock mockForProtocol:@protocol(OCRParser)];
-			
-			sut = [[OCREntry alloc] initWithStrings:inputStrings andParser:parser];
-			
-			
-		});
-		
-		it(@"should be invalid before parsing", ^{
-			
-			[[theValue([sut isValid]) should] beNo];
-					  
-		});
-
-		it(@"should send input string to parser", ^{
-			
-			[[parser should] receive:@selector(digitsFromArrayOfStrings:) andReturn:@[] withArguments:inputStrings];
-			
-			[sut parse];
+			[[theValue(sut.isValidatingCheckDigit) should] beYes];
 			
 		});
 
-		it(@"should report a valid parsing result", ^{
-						
-			[[mockDigitFor0 should] receive:@selector(confidence) andReturn:theValue(1.0) withCount:9];
-			
-			[[parser should] receive:@selector(digitsFromArrayOfStrings:) andReturn: digitsForNineZeroes];
-			
-			[sut parse];
-			
-			[[theValue([sut isValid]) should] beYes];
-			
-		});
 		
-		it(@"should report invalid if not 9 digits", ^{
-			
-			id mockDigitFor0 = [KWMock mockForProtocol:@protocol(OCRDigit)];
-			
-			NSArray *digits = @[ mockDigitFor0 ];
-			
-			[[mockDigitFor0 should] receive:@selector(confidence) andReturn:theValue(1.0) withCountAtLeast:0];
-			
-			[[parser should] receive:@selector(digitsFromArrayOfStrings:) andReturn: digits];
-			
-			[sut parse];
-			
-			[[theValue([sut isValid]) should] beNo];
-			
-		});
-		
-		it(@"should return a string matching a valid input", ^{
-			
-			[[mockDigitFor0 should] receive:@selector(integerValue) andReturn:theValue(0) withCount:9];
-			
-			[[parser should] receive:@selector(digitsFromArrayOfStrings:) andReturn: digitsForNineZeroes];
-			
-			[sut parse];
-			
-			[[[sut stringValue] should] equal: @"000000000"];
-			
-		});
-
 	});
 
 	context(@"use case 1", ^{
@@ -127,6 +53,8 @@ describe(@"OCREntry", ^{
 			
 			parser = [[OCRParser alloc] init];
 			sut = [[OCREntry alloc] initWithStrings:inputStrings andParser:parser];
+			
+			[sut setValidatesCheckDigit: NO];
 			
 			[sut parse];
 			
@@ -252,10 +180,67 @@ describe(@"OCREntry", ^{
 			
 		});
 		
-		
 	});
 
+	context(@"use case 2", ^{
+		
+		__block OCREntry *sut;
+		__block NSArray *inputStrings;
+		__block NSString *expectedResult;
+		__block id parser;
+		
+		beforeEach(^{
+			
+			parser = [[OCRParser alloc] init];
+			
+		});
+		
 
+		afterEach(^{
+			
+			sut = nil;
+			inputStrings = nil;
+			expectedResult = nil;
+			parser = nil;
+			
+		});
+		
+		it(@"should have valid checkdigit for 000000051", ^{
+			
+			inputStrings = @[	@" _  _  _  _  _  _  _  _    ",
+								@"| || || || || || || ||_   |",
+								@"|_||_||_||_||_||_||_| _|  |"
+					 ];
+			expectedResult = @"000000051";
+			
+			sut = [[OCREntry alloc] initWithStrings:inputStrings andParser:parser];
+			
+			[sut parse];
+			
+			[[theValue([sut isValid]) should] beYes];
+			
+			[[[sut stringValue] should] equal:expectedResult];
+		});
+		
+		it(@"should have INVALID checkdigit for 000000052", ^{
+			
+			inputStrings = @[	@" _  _  _  _  _  _  _  _  _ ",
+								@"| || || || || || || ||_  _|",
+								@"|_||_||_||_||_||_||_| _||_ "
+					 ];
+			expectedResult = @"000000052";
+			
+			sut = [[OCREntry alloc] initWithStrings:inputStrings andParser:parser];
+			
+			[sut parse];
+			
+			[[theValue([sut isValid]) should] beNo];
+			
+			[[[sut stringValue] should] equal:expectedResult];
+		});
+		
+	});
+	
 });
 
 SPEC_END
