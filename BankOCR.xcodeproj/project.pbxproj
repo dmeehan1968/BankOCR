@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A301194C172BB5A40021A9E6 /* BankOCRSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A301194B172BB5A40021A9E6 /* BankOCRSpec.m */; };
 		A318C40F172A8A36008F3CFE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A318C40E172A8A36008F3CFE /* Cocoa.framework */; };
 		A318C419172A8A36008F3CFE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A318C417172A8A36008F3CFE /* InfoPlist.strings */; };
 		A318C41B172A8A37008F3CFE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A318C41A172A8A37008F3CFE /* main.m */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		17F88C35D6AE4D60B0106506 /* libPods-BankOCRTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BankOCRTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A301194B172BB5A40021A9E6 /* BankOCRSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankOCRSpec.m; sourceTree = "<group>"; };
 		A318C40B172A8A36008F3CFE /* BankOCR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BankOCR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A318C40E172A8A36008F3CFE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A318C411172A8A36008F3CFE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -164,6 +166,7 @@
 		A318C431172A8A38008F3CFE /* BankOCRTests */ = {
 			isa = PBXGroup;
 			children = (
+				A301194B172BB5A40021A9E6 /* BankOCRSpec.m */,
 				A318C449172A8F13008F3CFE /* OCREntrySpec.m */,
 				A318C454172AE970008F3CFE /* OCRDigitSpec.m */,
 				A318C458172B0187008F3CFE /* OCRParserSpec.m */,
@@ -321,6 +324,7 @@
 				A318C44A172A8F13008F3CFE /* OCREntrySpec.m in Sources */,
 				A318C455172AE970008F3CFE /* OCRDigitSpec.m in Sources */,
 				A318C459172B0187008F3CFE /* OCRParserSpec.m in Sources */,
+				A301194C172BB5A40021A9E6 /* BankOCRSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
