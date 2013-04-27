@@ -222,13 +222,38 @@ describe(@"OCREntry", ^{
 			[[[sut stringValue] should] equal:expectedResult];
 		});
 		
+	});
+	
+	context(@"use case 3", ^{
+		
+		__block OCREntry *sut;
+		__block NSArray *inputStrings;
+		__block NSString *expectedResult;
+		__block id parser;
+		
+		beforeEach(^{
+			
+			parser = [[OCRParser alloc] init];
+			
+		});
+		
+		
+		afterEach(^{
+			
+			sut = nil;
+			inputStrings = nil;
+			expectedResult = nil;
+			parser = nil;
+			
+		});
+		
 		it(@"should have INVALID checkdigit for 000000052", ^{
 			
 			inputStrings = @[	@" _  _  _  _  _  _  _  _  _ ",
-								@"| || || || || || || ||_  _|",
-								@"|_||_||_||_||_||_||_| _||_ "
+					 @"| || || || || || || ||_  _|",
+					 @"|_||_||_||_||_||_||_| _||_ "
 					 ];
-			expectedResult = @"000000052";
+			expectedResult = @"000000052 ERR";
 			
 			sut = [[OCREntry alloc] initWithStrings:inputStrings andParser:parser];
 			
@@ -239,8 +264,64 @@ describe(@"OCREntry", ^{
 			[[[sut stringValue] should] equal:expectedResult];
 		});
 		
-	});
+		it(@"should show illegal character for 49006771? ILL", ^{
+			
+			inputStrings = @[	@"    _  _  _  _  _  _     _ ",
+								@"|_||_|| || ||_   |  |  | _ ",
+								@"  | _||_||_||_|  |  |  | _|"
+					 ];
+			expectedResult = @"49006771? ILL";
+			
+			sut = [[OCREntry alloc] initWithStrings:inputStrings andParser:parser];
+			
+			[sut parse];
+			
+			[[theValue([sut isValid]) should] beNo];
+			
+			[[[sut stringValue] should] equal:expectedResult];
+		});
+		
+		
+		it(@"should show error for invalid checkdigit for 664371495 ERR", ^{
+			
+			inputStrings = @[	@" _  _     _  _        _  _ ",
+								@"|_ |_ |_| _|  |  ||_||_||_ ",
+								@"|_||_|  | _|  |  |  | _| _|"
+					 ];
+			expectedResult = @"664371495 ERR";
+			
+			sut = [[OCREntry alloc] initWithStrings:inputStrings andParser:parser];
+			
+			[sut parse];
+			
+			[[theValue([sut isValid]) should] beNo];
+			
+			NSLog(@"%@", sut);
+			
+			[[[sut stringValue] should] equal:expectedResult];
+		});
+		
+		
+		it(@"should show illegal characters for 1234?678? ILL", ^{
+			
+			inputStrings = @[	@"    _  _     _  _  _  _  _ ",
+								@"  | _| _||_| _ |_   ||_||_|",
+								@"  ||_  _|  | _||_|  ||_| _ "
+					 ];
+			expectedResult = @"1234?678? ILL";
+			
+			sut = [[OCREntry alloc] initWithStrings:inputStrings andParser:parser];
+			
+			[sut parse];
+			
+			[[theValue([sut isValid]) should] beNo];
+			
+			[[[sut stringValue] should] equal:expectedResult];
+		});
+		
 	
+	});
+
 });
 
 SPEC_END

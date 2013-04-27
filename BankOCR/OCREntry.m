@@ -85,14 +85,40 @@
 -(NSString *)stringValue {
 	
 	__block NSString *string = @"";
-
+	
 	[self.digits enumerateObjectsUsingBlock:^(id<OCRDigit> digit, NSUInteger idx, BOOL *stop) {
-		
-		string = [string stringByAppendingFormat:@"%ld", (long)[digit integerValue] ];
+
+		string = [string stringByAppendingString: [digit stringValue] ];
 	}];
+
+	if ([self isIllegal]) {
+		string = [string stringByAppendingString:@" ILL"];
+		return string;
+	}
+	
+	if ([self isError]) {
+		string = [string stringByAppendingString:@" ERR"];
+		return string;
+	}
 	
 	return string;
+}
+
+-(BOOL) isError {
+	return [self isValidLength] == NO || [self isValidCheckdigit] == NO;
+}
+
+-(BOOL) isIllegal {
 	
+	return [self isHighConfidence] == NO;
+}
+
+-(NSString *)description {
+	return [NSString stringWithFormat:@"<%@ %p> len=%ld %@ %@", NSStringFromClass([self class]), self, (unsigned long)self.digits.count, self.stringValue, self.digits];
+}
+
+-(NSString *)debugDescription {
+	return [NSString stringWithFormat:@"<%@ %p> %@", NSStringFromClass([self class]), self, self.stringValue];
 }
 
 @end

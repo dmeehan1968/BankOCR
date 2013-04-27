@@ -6,6 +6,7 @@
 @property (getter = isDirty) BOOL dirty;
 @property (readwrite, nonatomic) float confidence;
 @property (readwrite, nonatomic) NSInteger integerValue;
+@property (readwrite, nonatomic) NSInteger closestIntegerValue;
 
 @end
 
@@ -80,8 +81,8 @@ const char _digits[10][3][3] = {
 
 -(void) setSymbol: (char) symbol atRow: (NSInteger) row column: (NSInteger) column {
 	
-	NSAssert(row >= 0 && row <= 2, @"");
-	NSAssert(column >= 0 && column <= 2, @"");
+	NSAssert(row >= 0 && row <= 2, @"row out of range");
+	NSAssert(column >= 0 && column <= 2, @"column out of range");
 	
 	_matrix[row][column] = symbol;
 	
@@ -103,6 +104,27 @@ const char _digits[10][3][3] = {
 	
 }
 
+-(NSInteger) closestIntegerValue {
+	
+	[self recalculate];
+	
+	return _closestIntegerValue;
+	
+}
+
+-(NSString *)stringValue {
+	
+	[self recalculate];
+	
+	if (self.confidence == 1.0) {
+		
+		return [NSString stringWithFormat:@"%ld", (long)self.integerValue];
+
+	}
+	
+	return @"?";
+}
+
 -(void) recalculate {
 	
 	if (self.isDirty == NO) {
@@ -110,14 +132,13 @@ const char _digits[10][3][3] = {
 	}
 	
 	self.dirty = NO;
-
+	self.confidence = 0.0;
+	self.integerValue = -1;
+	
 	for (int digit=0; digit < 10; digit++) {
 		
 		int matches = 0;
 
-		self.confidence = 0.0;
-		self.integerValue = -1;
-		
 		for (int row=0; row < 3; row++) {
 			
 			for (int col=0; col < 3; col++) {
@@ -128,13 +149,30 @@ const char _digits[10][3][3] = {
 			}
 		}
 		
-		if (matches == 9) {
-			self.confidence = 1.0;
-			self.integerValue = digit;
-			return;
+		float confidence = matches / 9;
+		
+		if (self.confidence < confidence) {
+		
+			self.confidence = confidence;
+			self.closestIntegerValue = digit;
+		
 		}
 	}
 	
+	if (self.confidence < 1.0) {
+		self.integerValue = -1;
+	} else {
+		self.integerValue = self.closestIntegerValue;
+	}
 }
+
+-(NSString *)description {
+	return [NSString stringWithFormat:@"<%@ %p> conf=%f int=%ld, close=%ld", NSStringFromClass([self class]), self, self.confidence, self.integerValue, self.closestIntegerValue];
+}
+
+-(NSString *)debugDescription {
+	return self.description;
+}
+
 
 @end
