@@ -3,6 +3,8 @@
 #import "OCRDigit.h"
 
 @implementation OCRParser
+{}
+#pragma mark - Parsing
 
 -(NSArray *)digitsFromArrayOfStrings:(NSArray *)strings {
 
@@ -46,6 +48,8 @@
 	
 	return digits;
 }
+
+#pragma mark - Utility
 
 -(NSArray *)mutableStringsFromStrings: (NSArray *) strings {
 	__block NSArray *mutableStrings = @[];

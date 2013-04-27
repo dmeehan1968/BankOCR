@@ -10,7 +10,7 @@
 
 @end
 
-const char _digits[10][3][3] = {
+const char OCRDigitMatrices[10][3][3] = {
 	{	// zero
 		{ ' ', '_', ' ' },
 		{ '|', ' ', '|' },
@@ -68,6 +68,8 @@ const char _digits[10][3][3] = {
 	char _matrix[3][3];
 }
 
+#pragma mark - Lifecycle
+
 -(id)init {
 	
 	if (self = [super init]) {
@@ -79,6 +81,8 @@ const char _digits[10][3][3] = {
 	
 }
 
+#pragma mark - Updating
+
 -(void) setSymbol: (char) symbol atRow: (NSInteger) row column: (NSInteger) column {
 	
 	NSAssert(row >= 0 && row <= 2, @"row out of range");
@@ -88,6 +92,8 @@ const char _digits[10][3][3] = {
 	
 	self.dirty = YES;
 }
+
+#pragma mark - State
 
 -(float)confidence {
 	
@@ -112,6 +118,9 @@ const char _digits[10][3][3] = {
 	
 }
 
+#pragma mark - External Representation
+
+
 -(NSString *)stringValue {
 	
 	[self recalculate];
@@ -124,6 +133,8 @@ const char _digits[10][3][3] = {
 	
 	return @"?";
 }
+
+#pragma mark - Utility
 
 -(void) recalculate {
 	
@@ -143,7 +154,7 @@ const char _digits[10][3][3] = {
 			
 			for (int col=0; col < 3; col++) {
 				
-				if (_digits[digit][row][col] == _matrix[row][col]) {
+				if (OCRDigitMatrices[digit][row][col] == _matrix[row][col]) {
 					matches++;
 				}
 			}
@@ -165,6 +176,8 @@ const char _digits[10][3][3] = {
 		self.integerValue = self.closestIntegerValue;
 	}
 }
+
+#pragma mark - Debug
 
 -(NSString *)description {
 	return [NSString stringWithFormat:@"<%@ %p> conf=%f int=%ld, close=%ld", NSStringFromClass([self class]), self, self.confidence, self.integerValue, self.closestIntegerValue];

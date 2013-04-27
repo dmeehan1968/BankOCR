@@ -10,6 +10,8 @@
 @end
 
 @implementation OCREntry
+{}
+#pragma mark - Lifecyle
 
 -(id)initWithStrings:(NSArray *)strings andParser:(id<OCRParser>)parser {
 	
@@ -24,6 +26,17 @@
 	
 	return self;
 }
+
+#pragma mark - Parsing
+
+-(void)parse {
+	
+	self.digits = [self.parser digitsFromArrayOfStrings: self.strings];
+	
+}
+
+#pragma mark - State
+
 
 -(BOOL)isValid {
 	
@@ -76,21 +89,26 @@
 
 }
 
--(void)parse {
-
-	self.digits = [self.parser digitsFromArrayOfStrings: self.strings];
-	
+-(BOOL) isError {
+	return [self isValidLength] == NO || [self isValidCheckdigit] == NO;
 }
+
+-(BOOL) isIllegal {
+	
+	return [self isHighConfidence] == NO;
+}
+
+#pragma mark - External Representation
 
 -(NSString *)stringValue {
 	
 	__block NSString *string = @"";
 	
 	[self.digits enumerateObjectsUsingBlock:^(id<OCRDigit> digit, NSUInteger idx, BOOL *stop) {
-
+		
 		string = [string stringByAppendingString: [digit stringValue] ];
 	}];
-
+	
 	if ([self isIllegal]) {
 		string = [string stringByAppendingString:@" ILL"];
 		return string;
@@ -104,14 +122,7 @@
 	return string;
 }
 
--(BOOL) isError {
-	return [self isValidLength] == NO || [self isValidCheckdigit] == NO;
-}
-
--(BOOL) isIllegal {
-	
-	return [self isHighConfidence] == NO;
-}
+#pragma mark - Debug
 
 -(NSString *)description {
 	return [NSString stringWithFormat:@"<%@ %p> len=%ld %@ %@", NSStringFromClass([self class]), self, (unsigned long)self.digits.count, self.stringValue, self.digits];
