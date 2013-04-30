@@ -32,6 +32,13 @@ describe(@"OCRRecognizer", ^{
         
     });
 	
+	it(@"should recognise 9 digits", ^{
+		
+		[[theValue([sut hasLengthEqualTo:9]) should] beYes];
+		
+	});
+
+	
     
 });
 

@@ -7,4 +7,6 @@
 
 +(id)recognizerWithCharacterSet: (OCRCharacterSet *) characterSet forStringArray: (NSArray *) stringArray;
 
+-(BOOL)hasLengthEqualTo: (NSInteger) length;
+
 @end

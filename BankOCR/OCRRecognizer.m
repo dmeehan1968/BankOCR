@@ -17,5 +17,8 @@
 	return self;
 }
 
+-(BOOL)hasLengthEqualTo:(NSInteger)length {
+	return NO;
+}
 
 @end
