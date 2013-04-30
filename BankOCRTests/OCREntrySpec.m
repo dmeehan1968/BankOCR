@@ -42,7 +42,7 @@ describe(@"OCREntry", ^{
 		
 	});
 
-	context(@"use case 1", ^{
+	context(@"use case 1 - character recognition", ^{
 		
 		__block OCREntry *sut;
 		__block NSArray *inputStrings;
@@ -182,7 +182,7 @@ describe(@"OCREntry", ^{
 		
 	});
 
-	context(@"use case 2", ^{
+	context(@"use case 2 - error checking", ^{
 		
 		__block OCREntry *sut;
 		__block NSArray *inputStrings;
@@ -224,7 +224,7 @@ describe(@"OCREntry", ^{
 		
 	});
 	
-	context(@"use case 3", ^{
+	context(@"use case 3 - error detection", ^{
 		
 		__block OCREntry *sut;
 		__block NSArray *inputStrings;
@@ -250,8 +250,8 @@ describe(@"OCREntry", ^{
 		it(@"should have INVALID checkdigit for 000000052", ^{
 			
 			inputStrings = @[	@" _  _  _  _  _  _  _  _  _ ",
-					 @"| || || || || || || ||_  _|",
-					 @"|_||_||_||_||_||_||_| _||_ "
+								@"| || || || || || || ||_  _|",
+								@"|_||_||_||_||_||_||_| _||_ "
 					 ];
 			expectedResult = @"000000052 ERR";
 			
@@ -296,8 +296,6 @@ describe(@"OCREntry", ^{
 			
 			[[theValue([sut isValid]) should] beNo];
 			
-			NSLog(@"%@", sut);
-			
 			[[[sut stringValue] should] equal:expectedResult];
 		});
 		
@@ -319,7 +317,48 @@ describe(@"OCREntry", ^{
 			[[[sut stringValue] should] equal:expectedResult];
 		});
 		
+	});
 	
+	context(@"use case 4 - error correction", ^{
+		
+		__block OCREntry *sut;
+		__block NSArray *inputStrings;
+		__block NSString *expectedResult;
+		__block id parser;
+		
+		beforeEach(^{
+			
+			parser = [[OCRParser alloc] init];
+			
+		});
+		
+		
+		afterEach(^{
+			
+			sut = nil;
+			inputStrings = nil;
+			expectedResult = nil;
+			parser = nil;
+			
+		});
+		
+		it(@"should suggest 711111111 for 111111111", ^{
+			
+			inputStrings = @[	@"                           ",
+								@"  |  |  |  |  |  |  |  |  |",
+								@"  |  |  |  |  |  |  |  |  |"
+					 ];
+			expectedResult = @"711111111";
+			
+			sut = [[OCREntry alloc] initWithStrings:inputStrings andParser:parser];
+			
+			[sut parse];
+			
+			[[theValue([sut isValid]) should] beNo];
+			
+			[[[sut stringValue] should] equal:expectedResult];
+		});
+		
 	});
 
 });

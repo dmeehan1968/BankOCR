@@ -33,6 +33,26 @@
 	
 	self.digits = [self.parser digitsFromArrayOfStrings: self.strings];
 	
+	[self errorCorrection];
+	
+}
+
+#pragma mark - Error Correction
+
+-(void) errorCorrection {
+	
+	[self errorCorrectCheckDigit];
+
+}
+
+-(void)errorCorrectCheckDigit {
+
+	if ([self isValidCheckdigit]) {
+		return;
+	}
+	
+	
+	
 }
 
 #pragma mark - State
