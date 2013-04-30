@@ -1,15 +1,23 @@
 #import "Kiwi.h"
 #import "OCRRecognizer.h"
+#import "OCRCharacterSet.h"
 
 SPEC_BEGIN(OCRRecognizerSpec)
 
 describe(@"OCRRecognizer", ^{
 	
     __block OCRRecognizer *sut;
-    
+    __block NSArray *stringArray;
+	
     beforeEach(^{
+	
+		stringArray = @[	@"    _  _     _  _  _  _  _ ",
+							@"  | _| _||_||_ |_   ||_||_|",
+							@"  ||_  _|  | _||_|  ||_| _|"
+				   ];
 		
-        sut = [[OCRRecognizer alloc] init];
+		OCRCharacterSet *decimalDigitCharacterSet = [OCRCharacterSet decimalDigitCharacterSet];
+        sut = [OCRRecognizer recognizerWithCharacterSet: decimalDigitCharacterSet forStringArray: stringArray];
         
     });
     
@@ -23,6 +31,7 @@ describe(@"OCRRecognizer", ^{
         [sut shouldNotBeNil];
         
     });
+	
     
 });
 

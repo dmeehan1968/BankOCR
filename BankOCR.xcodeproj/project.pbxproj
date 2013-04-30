@@ -19,6 +19,7 @@
 		A318C448172A8E37008F3CFE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A318C447172A8E37008F3CFE /* README.md */; };
 		A3C4CBD41730276000E70B1D /* OCRRecognizerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C4CBD31730276000E70B1D /* OCRRecognizerSpec.m */; };
 		A3C4CBD7173027A400E70B1D /* OCRRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C4CBD6173027A400E70B1D /* OCRRecognizer.m */; };
+		A3C4CBDA173063ED00E70B1D /* OCRCharacterSet.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C4CBD9173063ED00E70B1D /* OCRCharacterSet.m */; };
 		D16675090887404EAD4C88ED /* libPods-BankOCRTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F88C35D6AE4D60B0106506 /* libPods-BankOCRTests.a */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,8 @@
 		A3C4CBD31730276000E70B1D /* OCRRecognizerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCRRecognizerSpec.m; sourceTree = "<group>"; };
 		A3C4CBD5173027A400E70B1D /* OCRRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCRRecognizer.h; sourceTree = "<group>"; };
 		A3C4CBD6173027A400E70B1D /* OCRRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCRRecognizer.m; sourceTree = "<group>"; };
+		A3C4CBD8173063ED00E70B1D /* OCRCharacterSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCRCharacterSet.h; sourceTree = "<group>"; };
+		A3C4CBD9173063ED00E70B1D /* OCRCharacterSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCRCharacterSet.m; sourceTree = "<group>"; };
 		EB2D374DE58B47C780E7C72E /* Pods-BankOCRTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BankOCRTests.xcconfig"; path = "Pods/Pods-BankOCRTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -125,6 +128,8 @@
 		A318C414172A8A36008F3CFE /* BankOCR */ = {
 			isa = PBXGroup;
 			children = (
+				A3C4CBD8173063ED00E70B1D /* OCRCharacterSet.h */,
+				A3C4CBD9173063ED00E70B1D /* OCRCharacterSet.m */,
 				A3C4CBD5173027A400E70B1D /* OCRRecognizer.h */,
 				A3C4CBD6173027A400E70B1D /* OCRRecognizer.m */,
 				A318C420172A8A37008F3CFE /* OCRAppDelegate.h */,
@@ -293,6 +298,7 @@
 				A318C41B172A8A37008F3CFE /* main.m in Sources */,
 				A318C422172A8A37008F3CFE /* OCRAppDelegate.m in Sources */,
 				A3C4CBD7173027A400E70B1D /* OCRRecognizer.m in Sources */,
+				A3C4CBDA173063ED00E70B1D /* OCRCharacterSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

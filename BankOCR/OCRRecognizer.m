@@ -1,13 +1,21 @@
-//
-//  OCRRecognizer.m
-//  BankOCR
-//
-//  Created by Dave Meehan on 30/04/2013.
-//  Copyright (c) 2013 Replicated Solutions Limited. All rights reserved.
-//
 
 #import "OCRRecognizer.h"
 
 @implementation OCRRecognizer
+
++(id)recognizerWithCharacterSet:(id)characterSet forStringArray:(NSArray *)stringArray {
+
+	return [[self alloc] initRecognizerWithCharacterSet: characterSet forStringArray: stringArray];
+	
+}
+
+-(id)initRecognizerWithCharacterSet:(id)characterSet forStringArray:(NSArray *)stringArray {
+
+	if (self = [super init]) {
+		
+	}
+	return self;
+}
+
 
 @end
