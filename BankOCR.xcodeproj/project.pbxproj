@@ -17,6 +17,8 @@
 		A318C42E172A8A38008F3CFE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A318C40E172A8A36008F3CFE /* Cocoa.framework */; };
 		A318C436172A8A38008F3CFE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A318C434172A8A38008F3CFE /* InfoPlist.strings */; };
 		A318C448172A8E37008F3CFE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A318C447172A8E37008F3CFE /* README.md */; };
+		A3C4CBD41730276000E70B1D /* OCRRecognizerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C4CBD31730276000E70B1D /* OCRRecognizerSpec.m */; };
+		A3C4CBD7173027A400E70B1D /* OCRRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C4CBD6173027A400E70B1D /* OCRRecognizer.m */; };
 		D16675090887404EAD4C88ED /* libPods-BankOCRTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F88C35D6AE4D60B0106506 /* libPods-BankOCRTests.a */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +52,9 @@
 		A318C433172A8A38008F3CFE /* BankOCRTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BankOCRTests-Info.plist"; sourceTree = "<group>"; };
 		A318C435172A8A38008F3CFE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A318C447172A8E37008F3CFE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		A3C4CBD31730276000E70B1D /* OCRRecognizerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCRRecognizerSpec.m; sourceTree = "<group>"; };
+		A3C4CBD5173027A400E70B1D /* OCRRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCRRecognizer.h; sourceTree = "<group>"; };
+		A3C4CBD6173027A400E70B1D /* OCRRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCRRecognizer.m; sourceTree = "<group>"; };
 		EB2D374DE58B47C780E7C72E /* Pods-BankOCRTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BankOCRTests.xcconfig"; path = "Pods/Pods-BankOCRTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -120,6 +125,8 @@
 		A318C414172A8A36008F3CFE /* BankOCR */ = {
 			isa = PBXGroup;
 			children = (
+				A3C4CBD5173027A400E70B1D /* OCRRecognizer.h */,
+				A3C4CBD6173027A400E70B1D /* OCRRecognizer.m */,
 				A318C420172A8A37008F3CFE /* OCRAppDelegate.h */,
 				A318C421172A8A37008F3CFE /* OCRAppDelegate.m */,
 				A318C423172A8A37008F3CFE /* MainMenu.xib */,
@@ -144,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				A318C432172A8A38008F3CFE /* Supporting Files */,
+				A3C4CBD31730276000E70B1D /* OCRRecognizerSpec.m */,
 			);
 			path = BankOCRTests;
 			sourceTree = "<group>";
@@ -284,6 +292,7 @@
 			files = (
 				A318C41B172A8A37008F3CFE /* main.m in Sources */,
 				A318C422172A8A37008F3CFE /* OCRAppDelegate.m in Sources */,
+				A3C4CBD7173027A400E70B1D /* OCRRecognizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3C4CBD41730276000E70B1D /* OCRRecognizerSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
